@@ -21,7 +21,7 @@ every time n is increased by 2.
 
         | n | Number of terms computed |
         | 0 |            1             |
-     	  | 1 |            1             |
+     	| 1 |            1             |
         | 2 |            3             |
         | 3 |            5             |
         | 4 |            9             |
