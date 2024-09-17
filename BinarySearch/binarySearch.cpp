@@ -59,17 +59,19 @@ private:
 
 /* Prompt user for integer input. Validate input.
  * 
- * @param 
+ * @param integer: pointer to an integer
+ * @param text: pointer to the prompt text 
  */
 void get_int_input(int* integer, string* text) {
 
 	bool input_valid = false;
+
 	// Take and validate input
 	while (!input_valid) {
-		// Ask user for integer input
-		//cout << "Please enter the size of array: ";
-		cout << *text;
 
+		// Ask user for integer input
+		cout << *text;
+		// validate
 		while (!(cin >> (*integer))) {
 
 			cout << "Error: Please enter an integer: ";
@@ -88,10 +90,10 @@ void get_int_input(int* integer, string* text) {
 
 	}//while
 }
-/* Initilize an array of random ints
+/* Initialize an array of random ints
  *
  * @param size: size of the array
- * @param max: upper bound for array elements
+ * @param max: the highest value in range of array elements
  */
 void initialize_vector(int* size, int* max) {
 
@@ -104,13 +106,6 @@ void initialize_vector(int* size, int* max) {
 	{
 		std::cout << number << ' ';
 	}
-
-
-
-
-}
-void get_max_num(int* max_num) {
-
 }
 /* Calls methods to take and validate user input.
  *
@@ -127,14 +122,18 @@ void take_input(int* size, int* max_num) {
 	text = "Please enter upper bound for array elements: ";
 	get_int_input(max_num, &text);
 	// initialize vector
+	// IF AND ONLY IF MAX NUM IS GREATER THAN SIZE 
+	// (WE CAN'T HAVE REPETITION OF ELEMENTS for binary search)
+	while ( (*size) > (*max_num) ) {
+		cout << "The element of the highest value must be greater than size of the array " << endl;
+		get_int_input(max_num, &text);
+	}
 	initialize_vector(size, max_num);
 }
-
-
-
+/*
+ * Main method
+ */
 int main() {
-
-
 
 	int size;
 	int max_num;
@@ -144,17 +143,6 @@ int main() {
 
 	cout << "Input is " << size << endl;
 
-
-
-	//initialize_vector();
-
-	//random_device random_device;
-	//mt19937 random_engine(random_device());
-	//uniform_int_distribution<int> distribution_1_100(1, 100);
-
-	//auto const randomNumber = distribution_1_100(random_engine);
-
-	//cout << randomNumber << '\n';
 
 	
 	
